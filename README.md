@@ -85,7 +85,7 @@ Coming soon!
 |-------------------|:---------------------------------:|
 |Version            | 1.0                 |
 |Maturity           | stable                            |
-|Creators           | Georgie Samaha, Tracy Chew, Cali Willet                 |
+|Creators           | Georgie Samaha, Cali Willet, Nandan Deshpande, Tracy Chew                 |
 |Source             | NA                                |
 |License            | NA                                |
 |Workflow manager   | NA                          |
