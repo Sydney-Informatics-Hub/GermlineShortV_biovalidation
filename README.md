@@ -217,10 +217,10 @@ If Hap.py throws an error, search the [issues at Hap.py GitHub repository](https
 ## Acknowledgements/citations/credits  
 
 ### Authors 
-- Georgie Samaha (Sydney Informatics Hub)   
-- Tracy Chew (Sydney Informatics Hub)  
-- Cali Willet (Sydney Informatics Hub)  
-- Nandan Deshpande (Sydney Informatics Hub)
+- Georgie Samaha (Sydney Informatics Hub, University of Sydney)   
+- Tracy Chew (Sydney Informatics Hub, University of Sydney)  
+- Cali Willet (Sydney Informatics Hub, University of Sydney)  
+- Nandan Deshpande (Sydney Informatics Hub, University of Sydney)
 
 Acknowledgements (and co-authorship, where appropriate) are an important way for us to demonstrate the value we bring to your research. Your research outcomes are vital for ongoing funding of the Sydney Informatics Hub and national compute facilities. We suggest including the following acknowledgement in any publications that follow from this work:  
 
