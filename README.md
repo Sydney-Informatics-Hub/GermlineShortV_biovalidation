@@ -117,7 +117,7 @@ hap.py/0.3.14
 
 #### Gold standard variant truth sets  
 
-The benchmarking protocol for human datasets assumes you have performed mapping and germline variant calling on a gold standard truth set. These datasets contain millions of variants that have been confirmed using orthologous technologies [Eberle et al. 2017](https://doi.org/10.1101/gr.210500.116).   
+The benchmarking protocol for human datasets assumes you have performed mapping and germline variant calling on a gold standard truth set. These datasets contain millions of variants that have been confirmed using orthologous technologies [(Eberle et al. 2017)](https://doi.org/10.1101/gr.210500.116).   
 
 We recommend you use the Platinum Genomes dataset for benchmarking germline variant calling pipelines that include joint genotyping of multiple samples. Six members, comprising two trios, of the Platinum Genomes dataset can be downloaded from the Illumina BaseSpace Sequence Hub, the ENA, or dbGaP. The Platinum Genomes dataset contains multiple files including the following files you will need for running `run_happy.sh`: 
 - Paired-end FASTQ files for each sample
