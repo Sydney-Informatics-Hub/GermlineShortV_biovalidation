@@ -36,10 +36,12 @@ module load bcftools/1.14
 module load htslib/1.14
 
 # define variables
+vcfdir=
+work=
 sample=
 truth=
-ref=
-confidence=
+refdir=
+ref=${refdir}
 out=${sample}.happy
 
 # make logs directory in current directory
@@ -48,28 +50,28 @@ mkdir -p ./Logs
 # remove INFO,FORMAT fields not used by hap.py from query vcf to avoid errors
 echo "CLEANING UP QUERY VCF FOR HAPPY..."
 
-bcftools annotate -Oz -x INFO,FORMAT ${samplevcfdir}/${sample}.vcf.gz -o - | \
-        bcftools sort -Oz - -o ${samplevcfdir}/${sample}_geno_sorted.vcf.gz
+bcftools annotate -Oz -x INFO,FORMAT ${vcfdir}/${sample}.vcf.gz -o - | \
+        bcftools sort -Oz - -o ${vcfdir}/${sample}_geno_sorted.vcf.gz
 
 # index sorted query vcf
 echo "INDEXING QUERY VCF..."
 
-tabix -f ${samplevcfdir}/${sample}_geno_sorted.vcf.gz
+tabix -f ${vcfdir}/${sample}_geno_sorted.vcf.gz
 
 # remove overlapping variants in truth vcf - these throw an error and hap.py fails
 echo "PREPARING TRUTH VCF TO AVOID ERRORS..."
 
-bcftools view -e "%FILTER='SiteConflict'" -Oz ${work}/${truth}.vcf.gz -o ${work}/${truth}_clean.vcf.gz
+bcftools view -e "%FILTER='SiteConflict'" -Oz ${vcfdir}/${truth}.vcf.gz -o ${vcfdir}/${truth}_clean.vcf.gz
 
 # index cleaned truth vcf
-tabix ${work}/${truth}_clean.vcf.gz
+tabix ${vcfdir}/${truth}_clean.vcf.gz
 
 echo "RUNNING HAP.PY VCF COMPARISON TOOL..."
 
 # run hap.py using cleaned truth vcf and sample vcf
-hap.py ${work}/${truth}_clean.vcf.gz \
-        ${samplevcfdir}/${sample}_geno_sorted.vcf.gz \
-        --report-prefix ${out} \
+hap.py ${vcfdir}/${truth}_clean.vcf.gz \
+        ${vcfdir}/${sample}_geno_sorted.vcf.gz \
+        --report-prefix ${work}/${out} \
         -r ${ref} \
         -L --preprocess-truth --usefiltered-truth --fixchr \
         --roc QUAL \
