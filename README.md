@@ -36,7 +36,7 @@ Here, we present protocols for benchmarking and validating germline short varian
 These bash scripts were written for the University of Sydney’s high performance computer, Artemis. They can be run on the command line or submitted as PBS jobs. These scripts assume your input is a gzipped multi-sample (cohort) VCF file. Before running, edit the PBS project directive and define the variables at the top of the script. All software used in this protocol is installed on Artemis- to use alternate versions or run on a different compute infrastructure, edit the modules according to your needs.  
 
 #### Human datasets 
-For human datasets, we recommend you benchmark your germline variant calling pipeline using a gold standard dataset such as Platinum Genomes. Raw sequence data in FASTQ format for these datasets can be downloaded along with their high confidence variant calls and regions from public repositories. See [Preparing input files]() for more information on how to download and prepare these files.    
+For human datasets, we recommend you benchmark your germline variant calling pipeline using a gold standard dataset such as Platinum Genomes. Raw sequence data in FASTQ format for these datasets can be downloaded along with their high confidence variant calls and regions from public repositories. See [Preparing input files](https://github.com/Sydney-Informatics-Hub/GermlineShortV_biovalidation#preparing-input-files) for more information on how to download and prepare these files.    
 
 ##### 1. Collect vcf summary metrics  
 Edit the PBS -P directive and variables for your dataset in `vcfstat.sh`. Then run script with: 
