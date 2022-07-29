@@ -33,7 +33,7 @@ Here, we present protocols for benchmarking and validating germline short varian
 ## User guide 
 ###  Quick start guide 
 
-These bash scripts were written for the University of Sydney’s high performance computer, Artemis. They can be run on the command line or submitted as PBS jobs. These scripts assume your input is a gzipped multi-sample (cohort) VCF file. Before running, edit the PBS project directive and define the variables at the top of the script. All software used in this protocol is installed on Artemis- to use alternate versions or run on a different compute infrastructure, edit the modules according to your needs.  
+These bash scripts were written for the National Computational Infrastructure's HPC Gadi and the University of Sydney’s high performance computer, Artemis. They can be run on the command line or submitted as PBS jobs. These scripts assume your input is a gzipped multi-sample (cohort) VCF file. Before running, edit the PBS project directive and define the variables at the top of the script. All software used in this protocol is installed on Artemis- to use alternate versions or run on a different compute infrastructure, edit the modules according to your needs.  
 
 #### Human datasets 
 For human datasets, we recommend you benchmark your germline variant calling pipeline using a gold standard dataset such as Platinum Genomes. Raw sequence data in FASTQ format for these datasets can be downloaded along with their high confidence variant calls and regions from public repositories. See [Preparing input files](https://github.com/Sydney-Informatics-Hub/GermlineShortV_biovalidation#preparing-input-files) for more information on how to download and prepare these files.    
@@ -48,10 +48,18 @@ This will produce summary and quality metrics reports and plots for your cohort.
 
 ##### 2. Biological benchmarking using a truth set  
 
+**FOR NCI GADI**
 Edit the PBS -P directive and variables for your files. Then run script with:  
 
 ```
-qsub run_happy.sh
+qsub run_happy_NCIGadi.sh
+```
+
+**FOR USYD ARTEMIS**
+Edit the PBS -P directive and variables for your files. Then run script with:  
+
+```
+qsub run_happy_USydArtemis.sh
 ```
 This script will subset your multi-sample VCF into individual samples, prepare them for hap.py, and output a number of files including summary metrics (including recall, precision and F1-score) and ROC count files that can be used to produce ROC curves, separately for SNVs and indels. See the [hap.py user guide](https://github.com/Illumina/hap.py/blob/master/doc/happy.md) for more information on how to interpret hap.py output. ROC curves of Hap.py runs can be plotted using the script [rocplot.Rscript](https://github.com/Illumina/hap.py/blob/master/src/R/rocplot.Rscript).   
 
